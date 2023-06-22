@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Машины{% endblock %}
+
+{% block contect %}
+
+    {% if all_car_list %}
+
+        {% for a in all_car_list %}
+            <a href="{% url 'cars:detail' a.id %}">{{a.name}}</a>
+        {% endfor %}
+
+    {% else %}
+        Машины не найдены
+    {% endif %}
+
+{% endblock %}

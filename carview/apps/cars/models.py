@@ -11,3 +11,18 @@ class Car(models.Model):
     color=models.CharField('цвет авто', max_length=50)
     price=models.IntegerField('цена', blank=True, null=True)
     year=models.IntegerField('год', blank=True, null=True)
+
+    class Meta:
+        verbose_name='Машина'
+        verbose_name_plural='Машины'
+
+class CarImage(models.Model):
+    car=models.ForeignKey(Car, on_delete=models.CASCADE)
+    image=models.ImageField('изображение')
+
+    class Meta:
+        verbose_name='Изображение'
+        verbose_name_plural='Изображения'
+
+    def __str__(self):
+        return f"{self.id}# Изображение"

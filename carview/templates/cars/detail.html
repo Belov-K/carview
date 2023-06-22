@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{car.name}}{% endblock %}
+
+{% block contect %}
+
+<hr>
+
+{% if image_list %}
+
+    {% for i in image_list %}
+        <p>
+            <img src="{{i.image.url}}" width="444" height="250">
+        </p>
+    {% endfor %}
+
+{% else %}
+    Изображения не найдены
+{% endif %}
+
+<hr>
+
+<h2>{{car.name}}</h2>
+
+<p>{{car.engine_power}}</p>
+
+<p>{{car.engine_volume}}</p>
+
+<p>{{car.engine_type}}</p>
+
+<p>{{car.gear_type}}</p>
+
+<p>{{car.type}}</p>
+
+<p>{{car.type_drive_unit}}</p>
+
+<p>{{car.color}}</p>
+
+<p>{{car.price}}</p>
+
+<p>{{car.year}}</p>
+
+{% endblock %}
