@@ -12,6 +12,11 @@ class Car(models.Model):
     price=models.IntegerField('цена', blank=True, null=True)
     year=models.IntegerField('год', blank=True, null=True)
 
+    @property
+    def main_image(self):
+        main_image=self.carimage_set.all()[0]
+        return main_image
+
     class Meta:
         verbose_name='Машина'
         verbose_name_plural='Машины'
@@ -26,3 +31,13 @@ class CarImage(models.Model):
 
     def __str__(self):
         return f"{self.id}# Изображение"
+
+class CarCategory(models.Model):
+    name=models.CharField("название", max_length=50)
+
+    class Meta:
+        verbose_name='Категория'
+        verbose_name_plural='Категории'
+
+    def __str__(self):
+        return f"{self.id}# Категория"
